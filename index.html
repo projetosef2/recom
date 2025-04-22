@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construções Geométricas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Construções Geométricas com Régua e Compasso</h1>
+
+        <label for="construcao">Escolha uma construção:</label>
+        <select id="construcao" onchange="mostrarConstrucao()">
+            <option value="">Selecione...</option>
+            <option value="BISSETRIZ">Construção da Bissetriz de um Ângulo</option>
+            <option value="MEDIATRIZ">Construção da Mediatriz de um Segmento</option>
+            <option value="ANGULO_90">Construção do Ângulo de 90º</option>
+            <option value="ANGULO_60">Construção do Ângulo de 60º</option>
+            <option value="ANGULO_45">Construção do Ângulo de 45º</option>
+            <option value="ANGULO_30">Construção do Ângulo de 30º</option>
+            <option value="TRIANGULO">Construção do Triângulo Equilátero</option>
+            <option value="HEXAGONO">Construção do Hexágono Regular</option>
+            <option value="QUADRADO">Construção do Quadrado</option>
+        </select>
+
+        <div id="BISSETRIZ" class="content">
+            <h2>Construção da Bissetriz de um Ângulo</h2>
+            <p>1. Desenhe o ângulo: trace um ângulo qualquer e nomeie seus pontos: O (vértice do ângulo), 𝑥 e 𝑦 (extremidades dos lados do ângulo).</p>
+            <p>2. Marque dois pontos no ângulo: com a ponta seca do compasso em 𝑂, trace um arco que intersecta os dois lados do ângulo. Marque os pontos de interseção como T1 (no lado 𝑂𝑥) e T2 (no lado 𝑂𝑦).</p>
+            <p>3. Trace arcos a partir de T1 e T2: posicione a ponta seca do compasso em T1 e trace um arco dentro do ângulo. Sem alterar a abertura do compasso, repita o processo com a ponta em T2, de modo que os dois arcos se cruzem em um ponto T.</p>
+            <p>4. Desenhe a bissetriz: use a régua para unir o ponto 𝑂 (vértice do ângulo) ao ponto T (interseção dos arcos). A linha 𝑂T será a bissetriz do ângulo.</p>
+            <img src="imagens/bissetriz.gif" alt="Bissetriz de um Ângulo">
+            <p><a href="https://commons.wikimedia.org/w/index.php?search=regua+e+compasso" target="_blank">Fonte da imagem (adaptada)</a></p>
+        </div>
+
+        <div id="MEDIATRIZ" class="content">
+            <h2>Construção da Mediatriz de um Segmento</h2>
+            <p>1. Desenhe o segmento de reta: trace um segmento de reta qualquer e nomeie seus extremos como 𝐴 e 𝐵.</p>
+            <p>2. Marque dois arcos acima e abaixo do segmento: coloque a ponta seca do compasso em 𝐴 e ajuste a abertura para um pouco mais da metade do segmento. Trace um arco acima e outro abaixo. Repita o processo a partir de 𝐵, criando dois novos arcos que cruzam os anteriores.</p>
+            <p>3. A reta que passa pelos pontos de interseção é a mediatriz.</p>
+            <img src="imagens/mediatriz.gif" alt="Mediatriz de um Segmento">
+        </div>
+
+        <div id="ANGULO_90" class="content">
+            <h2>Construção do Ângulo de 90º</h2>
+            <p>1. Desenhe o segmento PA.</p>
+            <p>2. Coloque a ponta seca do compasso em P e desenhe um arco que corte o segmento em Q.</p>
+            <p>3. Coloque a ponta seca do compasso em Q e desenhe um arco de raio PQ que corte o arco anterior em R.</p>
+            <p>4. Com a ponta do compasso em R, desenhe outro arco para cortar o anterior em S.</p>
+            <p>5. Continue o processo até identificar o ponto T e una T a P. O ângulo APT é 90º.</p>
+            <img src="imagens/angulo_90.gif" alt="Ângulo de 90º">
+        </div>
+
+        <div id="ANGULO_60" class="content">
+            <h2>Construção do Ângulo de 60º</h2>
+            <p>1. Desenhe o segmento PQ.</p>
+            <p>2. Com a mesma abertura, trace um arco com centro em P passando por Q.</p>
+            <p>3. Com centro em Q, trace um arco cortando o anterior. Una P ao ponto de interseção: o ângulo QPR é de 60º.</p>
+            <img src="imagens/angulo_60.gif" alt="Ângulo de 60º">
+        </div>
+
+        <div id="ANGULO_45" class="content">
+            <h2>Construção do Ângulo de 45º</h2>
+            <p>1. Construa um ângulo de 90º.</p>
+            <p>2. Divida esse ângulo ao meio com a bissetriz: o ângulo resultante é de 45º.</p>
+            <img src="imagens/angulo_45.gif" alt="Ângulo de 45º">
+        </div>
+
+        <!-- Continue com os demais conteúdos (30º, Triângulo, Hexágono, Quadrado) conforme desejar -->
+
+    </div>
+
+    <script>
+        function mostrarConstrucao() {
+            var selecao = document.getElementById("construcao").value;
+            var conteudos = document.getElementsByClassName("content");
+
+            // Esconde todos os conteúdos
+            for (var i = 0; i < conteudos.length; i++) {
+                conteudos[i].style.display = "none";
+            }
+
+            // Mostra apenas o conteúdo selecionado
+            if (selecao) {
+                var divSelecionada = document.getElementById(selecao);
+                if (divSelecionada) {
+                    divSelecionada.style.display = "block";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
